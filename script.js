@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "Kk7TQGqQ3nA",
-      title: "하루 두 번🧘🏻‍♀️반드시 해야하는 20분 전신순환 스트레칭 Ep.08 - 피로회복, 디톡스, 심신안정, 혈액순환, 라인정리 효과 (Whole body stretch)",
+      title:
+        "하루 두 번🧘🏻‍♀️반드시 해야하는 20분 전신순환 스트레칭 Ep.08 - 피로회복, 디톡스, 심신안정, 혈액순환, 라인정리 효과 (Whole body stretch)",
       part: "전신",
       channelName: "빵느",
       url: "https://www.youtube.com/watch?v=Kk7TQGqQ3nA",
@@ -44,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "54tTYO-vU2E",
-      title: "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]",
+      title:
+        "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]",
       part: "상체",
       channelName: "ThankyouBUBU",
       url: "https://www.youtube.com/embed/54tTYO-vU2E",
@@ -87,16 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function generateCardHTML(video) {
+    const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/0.jpg`;
+    const reviewHref = `${window.location.href.replace(
+      "index.html",
+      "reviews.html"
+    )}?id=${video.id}`;
+
     return `
       <div class="col-md-4 card-item">
           <div class="card">
               <a href="${video.url}" target="_blank">
-                  <img src="https://img.youtube.com/vi/${video.id}/0.jpg" class="card-img-top" alt="${video.title}">
+                  <img src=${thumbnailUrl} class="card-img-top" alt="${video.title}">
               </a>
               <div class="card-body">
+                <a href=${reviewHref}>
                   <h5 class="card-title">${video.title}</h5>
                   <p class="card-text">${video.channelName}</p>
                   <span class="badge badge-success">${video.part}</span>
+                </a>
               </div>
           </div>
       </div>
@@ -112,21 +122,46 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCards(videoData.slice(0, 6), "recommendation-cards"); // First 6 videos
   renderCards(videoData, "exercise-cards"); // All videos
 
+  // Scroll functionality for arrow buttons
+  document.querySelectorAll(".arrow-controls .btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const container = e.target
+        .closest("section")
+        .querySelector(".card-container");
+      const scrollAmount =
+        container.scrollWidth / container.children.length / 3; // Calculate amount to scroll
+      container.scrollBy({
+        left: e.target.classList.contains("prev-btn")
+          ? -scrollAmount
+          : scrollAmount,
+        behavior: "smooth",
+      });
+    });
+  });
+
   function filterVideos(part) {
-    if (part === 'all') {
+    if (part === "all") {
       renderCards(videoData, "exercise-cards");
     } else {
-      const filteredVideos = videoData.filter(video => video.part === part);
+      const filteredVideos = videoData.filter((video) => video.part === part);
       renderCards(filteredVideos, "exercise-cards");
     }
   }
 
   // Initial render of all videos
-  filterVideos('all');
+  filterVideos("all");
 
   // Event listeners for buttons
-  document.getElementById("all-btn").addEventListener("click", () => filterVideos('전신'));
-  document.getElementById("upper-btn").addEventListener("click", () => filterVideos('상체'));
-  document.getElementById("lower-btn").addEventListener("click", () => filterVideos('하체'));
-  document.getElementById("abs-btn").addEventListener("click", () => filterVideos('복부'));
+  document
+    .getElementById("all-btn")
+    .addEventListener("click", () => filterVideos("전신"));
+  document
+    .getElementById("upper-btn")
+    .addEventListener("click", () => filterVideos("상체"));
+  document
+    .getElementById("lower-btn")
+    .addEventListener("click", () => filterVideos("하체"));
+  document
+    .getElementById("abs-btn")
+    .addEventListener("click", () => filterVideos("복부"));
 });
