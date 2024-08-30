@@ -3,15 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const reviewTable = document.getElementById("reviewTable");
 
   form.addEventListener("submit", function (event) {
-    console.log("submit");
     event.preventDefault(); // 폼 제출 기본 동작 막기
 
     // 폼의 입력값 가져오기
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-
-    console.log(title);
-    console.log(content);
 
     // 현재 시간을 "YYYY-MM-DD HH:MM:SS" 형식으로 가져오기
     const currentDateTime = new Date()
@@ -37,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 폼 초기화 및 모달 닫기
     form.reset();
-    $("#addReview").modal("hide");
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addReview'))
+    modal.hide();
   });
 });
