@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <img src=${thumbnailUrl} class="card-img-top" alt="${video.title}">
               </a>
               <div class="card-body">
-                <a href=${reviewHref}>
+                <a href=${reviewHref} style="text-decoration: none; color: black;">
                   <h5 class="card-title">${video.title}</h5>
                   <p class="card-text">${video.channelName}</p>
                   <span class="badge badge-success">${video.part}</span>
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function filterVideos(part) {
-    if (part === "all") {
+    if (part === "전체") {
       renderCards(videoData, "exercise-cards");
     } else {
       const filteredVideos = videoData.filter((video) => video.part === part);
@@ -149,11 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Initial render of all videos
-  filterVideos("all");
+  filterVideos("전체");
 
   // Event listeners for buttons
   document
     .getElementById("all-btn")
+    .addEventListener("click", () => filterVideos('전체'));
+  document
+    .getElementById("all-body-btn")
     .addEventListener("click", () => filterVideos("전신"));
   document
     .getElementById("upper-btn")
