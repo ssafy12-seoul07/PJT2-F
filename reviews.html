@@ -48,12 +48,68 @@
               class="video-thumbnail img-fluid rounded"
             />
           </a>
-
           <h2 id="video-title" class="video-title mt-4"></h2>
         </div>
       </div>
-      <div class="row justify-content-center mt-5">
+
+      <div
+        class="modal fade"
+        id="addReview"
+        tabindex="-1"
+        aria-labelledby="addReviewLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addReviewLabel">리뷰 추가</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="title" class="form-label">제목</label>
+                  <input type="text" class="form-control" id="title" required />
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="form-label">내용</label>
+                  <input
+                    type="content"
+                    class="form-control"
+                    id="content"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">추가</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  닫기
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-2">
         <div class="col-md-10">
+          <button
+            class="btn btn-primary float-sm-end mb-2"
+            data-toggle="modal"
+            data-target="#addReview"
+          >
+            리뷰 추가
+          </button>
           <table class="table table-bordered">
             <thead class="table-light">
               <tr>
@@ -61,37 +117,20 @@
                 <th scope="col">사용자</th>
                 <th scope="col">제목</th>
                 <th scope="col">작성 시간</th>
-                <th scope="col">조회수</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="reviewTable">
               <tr>
                 <th scope="row">1</th>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
+                <td>서현 킴</td>
+                <td>아 시원~~~하다!</td>
                 <td>2024-08-30 00:11:22</td>
-                <td>1</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
+                <td>혁구리</td>
+                <td>옆구리 쑥쑥</td>
                 <td>2024-08-30 00:11:22</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
-                <td>2024-08-30 00:11:22</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
-                <td>2024-08-30 00:11:22</td>
-                <td>4</td>
               </tr>
             </tbody>
           </table>
@@ -99,6 +138,10 @@
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="js/reviews.js" type="module"></script>
+    <script src="js/addReview.js"></script>
   </body>
 </html>

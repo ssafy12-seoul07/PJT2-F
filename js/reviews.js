@@ -1,7 +1,7 @@
 import { items } from "./videoData.js";
 
 const urlParams = new URLSearchParams(window.location.search);
-const videoId = urlParams.get("id");
+const videoId = urlParams.get("id") ?? items[0].id;
 
 // Find the video in the items array
 const video = items.find((v) => v.id === videoId);
