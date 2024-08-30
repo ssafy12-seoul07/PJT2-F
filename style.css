@@ -1,7 +1,17 @@
 body {
     font-family: Arial, sans-serif;
 }
+#loginModal .modal-dialog {
 
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+        }
 .header {
     background-color: #f8f9fa;
     padding: 15px 0;
@@ -142,4 +152,3 @@ body {
     padding: 10px 20px;
     margin-right: 10px;
 }
-
