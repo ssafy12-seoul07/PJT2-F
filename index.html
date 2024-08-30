@@ -10,9 +10,38 @@
 <body>
     <header class="header text-center">
         <h1>SSAFIT</h1>
-        <button class="btn btn-success login-button">Login</button>
+        <!-- 트리거 버튼 -->
+        <button class="btn btn-success login-button" data-toggle="modal" data-target="#loginModal">Login</button>
     </header>
-    
+
+    <!-- 모달 -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">로그인</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="userID" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="userID" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">로그인</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="container text-center">
             <img src="http://www.dailymedipharm.com/news/photo/202306/66237_37552_2447.jpg" alt="tomato image" class="img-fluid hero-image">
@@ -55,6 +84,9 @@
         </div>
     </section>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
