@@ -90,10 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateCardHTML(video) {
     const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/0.jpg`;
-    const reviewHref = `${window.location.href.replace(
-      "index.html",
-      "reviews.html"
-    )}?id=${video.id}`;
+    const currentUrl = window.location.href.replace("index.html", "");
+    const reviewHref = `${currentUrl}pages/reviews.html?id=${video.id}`;
 
     return `
       <div class="col-md-4 card-item">
