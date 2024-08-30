@@ -112,15 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCards(videoData.slice(0, 6), "recommendation-cards"); // First 6 videos
   renderCards(videoData, "exercise-cards"); // All videos
 
-  // Scroll functionality for arrow buttons
-  document.querySelectorAll(".arrow-controls .btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const container = e.target.closest("section").querySelector(".card-container");
-      const scrollAmount = container.scrollWidth / container.children.length / 3; // Calculate amount to scroll
-      container.scrollBy({
-        left: e.target.classList.contains("prev-btn") ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    });
-  });
+  function filterVideos(part) {
+    if (part === 'all') {
+      renderCards(videoData, "exercise-cards");
+    } else {
+      const filteredVideos = videoData.filter(video => video.part === part);
+      renderCards(filteredVideos, "exercise-cards");
+    }
+  }
+
+  // Initial render of all videos
+  filterVideos('all');
+
+  // Event listeners for buttons
+  document.getElementById("all-btn").addEventListener("click", () => filterVideos('전신'));
+  document.getElementById("upper-btn").addEventListener("click", () => filterVideos('상체'));
+  document.getElementById("lower-btn").addEventListener("click", () => filterVideos('하체'));
+  document.getElementById("abs-btn").addEventListener("click", () => filterVideos('복부'));
 });
