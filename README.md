@@ -44,6 +44,10 @@ Conflict가 날 것으로 예상했다.
 
 ### Bootstrap의 jQuery 의존성
 
-BootStrap의 Modal Component를 사용하였다.
-최신 버전과(ver 5.3.3) 많이 사용되는 버전(ver 4.5.2)를 사용해보았는데,
-최신 버전은 jQuery를 script로 불러오지 않아도 Modal
+BootStrap의 Modal Component를 사용하였다. ChatGpt의 추천은 ver 4.5.2 였다.
+하지만 해당 버전은 jQuery 의존성을 javascript 내에서 직접 주입하는 형태로 사용해야 모달이 정상 동작하였다.  
+우리 script에서 jQuery를 사용하지 않기에 코드의 혼동을 줄이고, 최신 버전을 사용하기 위해서
+버전을 업그레이드 하고 jQuery 의존성을 추가하는 script tag를 삭제하여 반영하였다.
+
+또한 BootStrap이 popper.js에 의존하고 있어서 header 말고도 body 태그 아래 script tag를 추가로 입력해야 한다는 것을 새롭게 배웠다.
+이렇게 써드파티 라이브러리들 간의 의존성 또한 잘 생각하면서 사용해야함을 배웠다.
