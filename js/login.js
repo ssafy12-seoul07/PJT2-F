@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
           updateLoginLogoutButton(); // 로그인 후 버튼 업데이트
           toggleRecommendationSection(); // 추천 섹션 표시 업데이트
           updateRecommendationHeader(userID); // 사용자 추천 헤더 업데이트
-          $('#loginModal').modal('hide'); // 모달 숨기기
+          const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'))
+          modal.hide();
       });
   }
 
@@ -28,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
           toggleRecommendationSection(); // 추천 섹션 숨기기
           updateRecommendationHeader(null); // 추천 헤더 업데이트
       } else {
-          $('#loginModal').modal('show');
+          const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'))
+          modal.hide();
       }
   });
 
