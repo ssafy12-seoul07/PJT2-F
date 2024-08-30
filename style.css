@@ -1,17 +1,18 @@
 body {
     font-family: Arial, sans-serif;
 }
-#loginModal .modal-dialog {
 
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background: white;
-        }
+#loginModal .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: white;
+    border-radius: 2%;
+}
 .header {
     background-color: #f8f9fa;
     padding: 15px 0;
@@ -35,20 +36,24 @@ body {
 }
 
 .hero {
-    background-color: #ffffff;
+    position: relative;
     padding: 30px 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),url('http://www.dailymedipharm.com/news/photo/202306/66237_37552_2447.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
     text-align: center;
 }
 
-.hero-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+.hero-text {
+    position: relative;
+    padding: 100px;
 }
 
 .hero-text h2 {
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.5rem;
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -107,13 +112,6 @@ body {
     background-color: #6c757d;
 }
 
-.arrow-controls .btn {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    font-size: 1.2rem;
-}
-
 .card-container {
     display: flex;
     overflow: hidden;
@@ -125,11 +123,6 @@ body {
     flex: 0 0 33.33%; /* Show 3 cards at a time (33.33% width for each) */
     max-width: 33.33%;
     box-sizing: border-box;
-}
-
-.arrow-controls {
-    margin-top: 20px;
-    text-align: center;
 }
 
 .exercise-category {

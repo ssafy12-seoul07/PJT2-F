@@ -90,7 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateCardHTML(video) {
     const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/0.jpg`;
-    const reviewHref = `${window.location.href.replace("index.html","reviews.html")}?id=${video.id}`;
+    const reviewHref = `${window.location.href.replace(
+      "index.html",
+      "reviews.html"
+    )}?id=${video.id}`;
 
     return `
       <div class="col-md-4 card-item">
@@ -135,4 +138,30 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  function filterVideos(part) {
+    if (part === "all") {
+      renderCards(videoData, "exercise-cards");
+    } else {
+      const filteredVideos = videoData.filter((video) => video.part === part);
+      renderCards(filteredVideos, "exercise-cards");
+    }
+  }
+
+  // Initial render of all videos
+  filterVideos("all");
+
+  // Event listeners for buttons
+  document
+    .getElementById("all-btn")
+    .addEventListener("click", () => filterVideos("전신"));
+  document
+    .getElementById("upper-btn")
+    .addEventListener("click", () => filterVideos("상체"));
+  document
+    .getElementById("lower-btn")
+    .addEventListener("click", () => filterVideos("하체"));
+  document
+    .getElementById("abs-btn")
+    .addEventListener("click", () => filterVideos("복부"));
 });
